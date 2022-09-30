@@ -75,6 +75,13 @@ const Home: NextPage = () => {
               member of{" "}
               <span className="text-teal-500">Front-end Coders Mauritius</span>
             </p>
+
+            <div className="rounded px-6 py-10 text-center prose shadow-lg flex flex-col justify-center items-center">
+              <BsFillMoonStarsFill className="cursor-pointer text-2xl text-center" />
+              <h3>Designing tool</h3>
+              <p>Creating elegants design</p>
+              <h4 className="text-teal-400">Design tools : use</h4>
+            </div>
           </div>
         </section>
       </main>
