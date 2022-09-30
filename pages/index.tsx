@@ -1,86 +1,85 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import myPic from "../public/mypic.png";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import {
+  AiFillTwitterCircle,
+  AiFillLinkedin,
+  AiFillYoutube,
+} from "react-icons/ai";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Mahima ramgolam Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
+      <main className="px-8">
+        <section className="">
+          <nav className="py-10 mb-12 flex justify-between px-2">
+            <h1 className="text-xl font-semibold font-burtons">
+              developedByMahi
+            </h1>
+            <ul className="flex items-center gap-8">
+              <li>
+                <BsFillMoonStarsFill className="cursor-pointer text-2xl" />
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="bg-gradient-to-r from-cyan-500 to-teal-200 text-white px-4 py-2 rounded"
+                >
+                  Resume
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="p-10 text-center prose">
+            <h2 className="text-4xl text-teal-600">Mahima Ramgolam</h2>
+            <h3>Frontend Developer.</h3>
+            <p className="text-gray-800">
+              Coding for fun and work. Building websites as I learn new tech to
+              keep up with the trend and updates.
             </p>
-          </a>
+          </div>
+          <div className="text-5xl flex gap-12 justify-center items-center text-gray-800">
+            <AiFillTwitterCircle />
+            <AiFillLinkedin />
+            <AiFillYoutube />
+          </div>
+          <div className="relative mx-auto mt-12 bg-gradient-to-b from-teal-500 to-teal-50 rounded-full w-60 h-60 flex justify-center items-center overflow-hidden">
+            <Image
+              src={myPic}
+              alt="profile pic"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </section>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
+        <section>
+          <div className="prose py-12">
+            <h3 className="text-3xl tracking-tight">Service I offer</h3>
+            <p>
+              Since the beginning of my journey, I started developing as a
+              freelancer. Then joined{" "}
+              <span className="text-teal-500">companies</span> to get the start
+              off properly and collaborated with talented people to create
+              digital products.
             </p>
-          </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
+            <p>
+              Also in my free time, I contribute to Open source projects. Team
+              member of{" "}
+              <span className="text-teal-500">Front-end Coders Mauritius</span>
             </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+          </div>
+        </section>
       </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
