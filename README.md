@@ -2,6 +2,8 @@ Mahima Ramgolam Portfolio
 
 ### Built using NextJS and Tailwind CSS
 
+DarkMode available :)
+
 ##### #Setup
 
 ```bash
