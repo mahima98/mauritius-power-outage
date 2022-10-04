@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+
 import myPic from "../public/mypic.png";
 import design1 from "../public/img-1.jpg";
 import design2 from "../public/img-2.jpg";
@@ -14,49 +15,18 @@ import {
   AiFillLinkedin,
   AiFillYoutube,
 } from "react-icons/ai";
+import Header from "../components/Header";
 
 const Home: NextPage = () => {
   const [darkMode, setDarkMode] = useState(false);
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <>
       <Head>
         <title>Mahima ramgolam</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="px-8 w-full dark:bg-gray-600">
         <section className="flex flex-col justify-center items-center max-w-7xl mx-auto">
-          <nav className="py-10 mb-12 md:mb-6 flex justify-between px-2 w-full">
-            <h1 className="text-xl font-semibold font-burtons">
-              developedByMahi
-            </h1>
-            <ul className="flex items-center gap-8">
-              {!darkMode && (
-                <li>
-                  <BsFillMoonStarsFill
-                    onClick={() => setDarkMode(!darkMode)}
-                    className="cursor-pointer text-2xl"
-                  />
-                </li>
-              )}
-              {darkMode && (
-                <li className="dark:text-white">
-                  <HiOutlineLightBulb
-                    onClick={() => setDarkMode(!darkMode)}
-                    className="cursor-pointer text-3xl"
-                  />
-                </li>
-              )}
-
-              <li>
-                <a
-                  href="#"
-                  className="bg-gradient-to-r from-cyan-500 to-teal-200 text-white dark:text-gray-800 px-4 py-2 rounded"
-                >
-                  Resume
-                </a>
-              </li>
-            </ul>
-          </nav>
           <div className="p-10 text-center prose ">
             <h2 className="text-4xl text-teal-600 dark:text-black font-medium tracking-tight mb-4 md:mb-2">
               Mahima Ramgolam
@@ -206,7 +176,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </main>
-    </div>
+    </>
   );
 };
 
