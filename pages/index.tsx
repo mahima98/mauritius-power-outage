@@ -20,7 +20,7 @@ const Home: NextPage = () => {
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
-        <title>Mahima ramgolam Portfolio</title>
+        <title>Mahima ramgolam</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="px-8 w-full dark:bg-gray-600">
