@@ -3,6 +3,7 @@
 ### Built using NextJS and Tailwind CSS
 
 - Dark Mode available :)
+- Responsive
 - Site is live ✨ - https://mahima-portfolio-nextjs.netlify.app/
 
 ##### <u>Preview</u>
