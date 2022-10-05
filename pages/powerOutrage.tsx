@@ -1,5 +1,6 @@
+import Head from "next/head";
 import { Key, useEffect, useState } from "react";
-
+import { ImPower } from "react-icons/im";
 export interface product {
   id: string;
   brand: string;
@@ -46,48 +47,57 @@ function powerOutrage() {
   console.log(itemsKeys);
 
   return (
-    <div className="power-outrage dark:bg-gray-600">
-      <div className="p-6 flex flex-col gap-4 max-w-7xl mx-auto ">
-        {Object.keys(countryList).map((key, i: Key) => (
-          <div
-            key={i}
-            className="p-4 bg-gray-100 rounded-lg inline-block flex flex-col gap-4 "
-          >
-            <div className="font-bold text-xl uppercase tracking-wide">
-              {key}
-            </div>
-            <div className="">
-              {items[i]
-                .slice(0)
-                .reverse()
-                .slice(0, 10)
-                .map(
-                  (
-                    value: { district: string; from: string; to: string },
-                    i: Key
-                  ) => (
-                    <div
-                      key={i}
-                      className="p-4 m-1 bg-gray-200 inline-block rounded-lg"
-                    >
-                      <div>{value.district}</div>
-                      <div>
-                        from ({" "}
-                        {new Intl.DateTimeFormat("en-GB", {
-                          month: "long",
-                          day: "2-digit",
-                          year: "numeric",
-                        }).format(new Date(value.from))}
-                        )
+    <>
+      <Head>
+        <title>Power Outrages</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="power-outrage dark:bg-gray-600">
+        <div className="p-6 flex flex-col gap-4 max-w-7xl mx-auto ">
+          {Object.keys(countryList).map((key, i: Key) => (
+            <div
+              key={i}
+              className="p-4 bg-gray-100 rounded-lg flex flex-col gap-4 "
+            >
+              <div className="flex items-center gap-4">
+                <div className="font-bold text-xl uppercase tracking-wide">
+                  {key}
+                </div>
+                <ImPower />
+              </div>
+              <div className="">
+                {items[i]
+                  .slice(0)
+                  .reverse()
+                  .slice(0, 10)
+                  .map(
+                    (
+                      value: { district: string; from: string; to: string },
+                      i: Key
+                    ) => (
+                      <div
+                        key={i}
+                        className="p-4 m-1 bg-gray-200 inline-block rounded-lg"
+                      >
+                        <div>{value.district}</div>
+                        <div>
+                          from ({" "}
+                          {new Intl.DateTimeFormat("en-GB", {
+                            month: "long",
+                            day: "2-digit",
+                            year: "numeric",
+                          }).format(new Date(value.from))}
+                          )
+                        </div>
                       </div>
-                    </div>
-                  )
-                )}
+                    )
+                  )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
