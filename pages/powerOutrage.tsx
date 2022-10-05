@@ -52,12 +52,18 @@ function powerOutrage() {
         <title>Power Outrages</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="power-outrage dark:bg-gray-600">
-        <div className="p-6 flex flex-col gap-4 max-w-7xl mx-auto ">
+      <div className="power-outrage dark:bg-gray-600 pt-4">
+        <div className="p-6 flex flex-col gap-4 max-w-7xl mx-auto">
+          <h1
+            className="font-medium text-4xl text-center pb-4"
+            style={{ textShadow: "#30D5C8 1px 0 8px" }}
+          >
+            Power Outrage Mauritius
+          </h1>
           {Object.keys(countryList).map((key, i: Key) => (
             <div
               key={i}
-              className="p-4 bg-gray-100 rounded-lg flex flex-col gap-4 "
+              className="p-4 bg-gray-100 dark:bg-gray-400 rounded-lg flex flex-col gap-4 "
             >
               <div className="flex items-center gap-4">
                 <div className="font-bold text-xl uppercase tracking-wide">
@@ -77,7 +83,7 @@ function powerOutrage() {
                     ) => (
                       <div
                         key={i}
-                        className="p-4 m-1 bg-gray-200 inline-block rounded-lg"
+                        className="p-4 m-1 bg-gray-200 dark:bg-gray-500 inline-block rounded-lg text-gray-900 dark:text-gray-900"
                       >
                         <div>{value.district}</div>
                         <div>
