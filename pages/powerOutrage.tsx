@@ -52,10 +52,10 @@ function powerOutrage() {
         <title>Power Outrages</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="power-outrage dark:bg-gray-600 pt-4">
+      <div className="power-outrage dark:bg-gray-600 md:pt-4">
         <div className="p-6 flex flex-col gap-4 max-w-7xl mx-auto">
           <h1
-            className="font-medium text-4xl text-center pb-4"
+            className="font-medium md:text-4xl text-3xl text-center pb-8 md:pb-4 text-white"
             style={{ textShadow: "#30D5C8 1px 0 8px" }}
           >
             Power Outrage Mauritius
