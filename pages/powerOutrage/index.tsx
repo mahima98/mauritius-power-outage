@@ -1,6 +1,8 @@
 import Head from "next/head";
+import Link from "next/link";
 import { Key, useEffect, useState } from "react";
 import { ImPower } from "react-icons/im";
+
 export interface product {
   id: string;
   brand: string;
@@ -17,9 +19,9 @@ export interface Countries {
 
 const API_ENDPOINT =
   "https://raw.githubusercontent.com/MrSunshyne/mauritius-dataset-electricity/main/data/power-outages.json";
-// const API_ENDPOINT = "https://dummyjson.com/products/category/smartphones";
 
 function powerOutrage() {
+  const [isLoading, setIsLoading] = useState(true);
   const [loadedOutrages, setLoadedOutrages] = useState([]);
 
   useEffect(() => {
@@ -27,10 +29,15 @@ function powerOutrage() {
       .then((response) => {
         return response.json();
       })
-      .then((data) => setLoadedOutrages(data));
+      .then((data) => {
+        setIsLoading(false);
+        setLoadedOutrages(data);
+      });
   }, []);
 
   const countryList = loadedOutrages;
+
+  console.log("countryList", countryList);
 
   // key : "Values"
   // Get array values
@@ -60,44 +67,28 @@ function powerOutrage() {
           >
             Power Outrage Mauritius
           </h1>
+          {isLoading && (
+            <div className="text-center text-xl text-gray-300 pt-20">
+              Loading...
+            </div>
+          )}
           {Object.keys(countryList).map((key, i: Key) => (
             <div
               key={i}
               className="p-4 bg-gray-100 dark:bg-gray-400 rounded-lg flex flex-col gap-4 "
             >
               <div className="flex items-center gap-4">
-                <div className="font-bold text-xl uppercase tracking-wide">
-                  {key}
-                </div>
+                <Link
+                  href={{
+                    pathname: `/powerOutrage/${key}`,
+                    query: items[i],
+                  }}
+                >
+                  <div className="cursor-pointer font-bold text-xl uppercase tracking-wide">
+                    {key}
+                  </div>
+                </Link>
                 <ImPower />
-              </div>
-              <div className="">
-                {items[i]
-                  .slice(0)
-                  .reverse()
-                  .slice(0, 10)
-                  .map(
-                    (
-                      value: { district: string; from: string; to: string },
-                      i: Key
-                    ) => (
-                      <div
-                        key={i}
-                        className="p-4 m-1 bg-gray-200 dark:bg-gray-500 inline-block rounded-lg text-gray-900 dark:text-gray-900"
-                      >
-                        <div>{value.district}</div>
-                        <div>
-                          from ({" "}
-                          {new Intl.DateTimeFormat("en-GB", {
-                            month: "long",
-                            day: "2-digit",
-                            year: "numeric",
-                          }).format(new Date(value.from))}
-                          )
-                        </div>
-                      </div>
-                    )
-                  )}
               </div>
             </div>
           ))}
