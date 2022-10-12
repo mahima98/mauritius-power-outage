@@ -39,8 +39,12 @@ function powerOutrageDetailPage() {
         <h1 className="font-bold text-3xl uppercase py-8 text-center">
           {powerOutrageId} outrages
         </h1>
-        {isLoading && <div>{isLoading}</div>}
-        <div className="flex justify-center items-center flex-wrap">
+        {isLoading && (
+          <div className="text-gray-300 text-xl text-center pt-8">
+            Loading...
+          </div>
+        )}
+        <div className="flex justify-center items-center flex-wrap dark:bg-gray-600 pb-8">
           {results[0] &&
             results[0]
               .slice(0)
@@ -53,17 +57,27 @@ function powerOutrageDetailPage() {
                 ) => (
                   <div
                     key={i}
-                    className="p-4 m-1 bg-gray-200 dark:bg-gray-500 inline-block rounded-lg text-gray-900 dark:text-gray-900"
+                    className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[260px]"
                   >
-                    <div className="font-medium">{value.district}</div>
                     <div>
-                      from (
-                      {new Intl.DateTimeFormat("en-GB", {
-                        month: "long",
-                        day: "2-digit",
-                        year: "numeric",
-                      }).format(new Date(value.from))}
-                      )
+                      <div>
+                        <span className="font-medium">from </span>(
+                        {new Intl.DateTimeFormat("en-GB", {
+                          month: "long",
+                          day: "2-digit",
+                          year: "numeric",
+                        }).format(new Date(value.from))}{" "}
+                        )
+                      </div>
+                      <div>
+                        <span className="font-medium">To </span> (
+                        {new Intl.DateTimeFormat("en-GB", {
+                          month: "long",
+                          day: "2-digit",
+                          year: "numeric",
+                        }).format(new Date(value.to))}
+                        )
+                      </div>
                     </div>
                   </div>
                 )

@@ -7,7 +7,7 @@ export default function Header({ darkMode, setDarkMode }: any) {
     <nav className=" dark:bg-gray-600 ">
       <div className="py-6 px-4 flex flex-col md:flex-row gap-4 md:gap-0 justify-between max-w-7xl mx-auto dark:border-b border-gray-500">
         <Link href="/">
-          <h1 className="flex justify-center items-center rsor-pointer text-xl font-semibold font-burtons">
+          <h1 className="flex justify-center items-center rsor-pointer text-xl font-semibold font-burtons cursor-pointer">
             developedByMahi
           </h1>
         </Link>
