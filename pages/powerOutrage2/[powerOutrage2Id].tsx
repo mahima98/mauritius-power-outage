@@ -1,34 +1,20 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-function powerOutrageDetailPage() {
-  const router = useRouter();
-  const powerOutrageId = router.query.powerOutrageId;
+function powerOutrage2DetailPage(props: any) {
+  const { countryList } = props;
+  const { results } = props;
 
   const API_ENDPOINT =
     "https://raw.githubusercontent.com/MrSunshyne/mauritius-dataset-electricity/main/data/power-outages.json";
 
   const [isLoading, setIsLoading] = useState(true);
-  const [loadedOutrages, setLoadedOutrages] = useState([]);
+  const router = useRouter();
+  let powerOutrageId = router.query.powerOutrageId;
 
-  useEffect(() => {
-    fetch(API_ENDPOINT)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setIsLoading(false);
-        setLoadedOutrages(data);
-      });
-  }, []);
-
-  const items = Object.values(loadedOutrages).map((value) => {
-    return value;
-  });
-
-  const results = items.filter((obj, i) => {
-    return obj[i].district === powerOutrageId;
-  });
+  // const results = items.filter((obj, i) => {
+  //   return obj[i].district === powerOutrageId;
+  // });
 
   return (
     <section className="dark:bg-gray-600 h-screen">
@@ -36,11 +22,11 @@ function powerOutrageDetailPage() {
         <h1 className="font-bold text-3xl uppercase py-8 text-center">
           {powerOutrageId} outrages
         </h1>
-        {isLoading && (
+        {/* {isLoading && (
           <div className="text-gray-300 text-xl text-center pt-8">
             Loading...
           </div>
-        )}
+        )} */}
         <div className="flex justify-center items-center flex-wrap dark:bg-gray-600 pb-8">
           {results[0] &&
             results[0]
@@ -88,4 +74,54 @@ function powerOutrageDetailPage() {
   );
 }
 
-export default powerOutrageDetailPage;
+async function getData() {
+  const API_ENDPOINT =
+    "https://raw.githubusercontent.com/MrSunshyne/mauritius-dataset-electricity/main/data/power-outages.json";
+  const res = await fetch(API_ENDPOINT);
+  const countryList = await res.json();
+
+  return countryList;
+}
+
+export async function getStaticProps() {
+  const router = useRouter();
+  let powerOutrageId = router.query.powerOutrageId;
+  const countryList = await getData();
+
+  // key : "Values"
+  // Get array values
+  const items = Object.values(countryList).map((value) => {
+    return value;
+  });
+
+  // Get array keys
+  const itemsKeys = Object.keys(countryList).map((key) => {
+    return key;
+  });
+
+  const results = items.find((obj, i) => {
+    return obj[i].district === powerOutrageId;
+  });
+
+  console.log("items -", items);
+
+  return {
+    props: {
+      countryList,
+      results,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const countryList = await getData();
+
+  console.log(countryList);
+
+  return {
+    paths: [{ params: {} }],
+    fallback: false,
+  };
+}
+
+export default powerOutrage2DetailPage;

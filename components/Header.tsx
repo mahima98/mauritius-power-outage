@@ -17,6 +17,11 @@ export default function Header({ darkMode, setDarkMode }: any) {
               <a className="font-semibold text-sm">Power outrage</a>
             </Link>
           </li>
+          <li className="md:px-4 px-2 py-2 rounded hover:bg-gray-100">
+            <Link href="/powerOutrage2">
+              <a className="font-semibold text-sm">Power outrage (SSR)</a>
+            </Link>
+          </li>
           {!darkMode && (
             <li>
               <BsFillMoonStarsFill

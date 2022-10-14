@@ -17,41 +17,8 @@ export interface Countries {
   to: string;
 }
 
-const API_ENDPOINT =
-  "https://raw.githubusercontent.com/MrSunshyne/mauritius-dataset-electricity/main/data/power-outages.json";
-
-function powerOutrage() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadedOutrages, setLoadedOutrages] = useState([]);
-
-  useEffect(() => {
-    fetch(API_ENDPOINT)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setIsLoading(false);
-        setLoadedOutrages(data);
-      });
-  }, []);
-
-  const countryList = loadedOutrages;
-
-  console.log("countryList", countryList);
-
-  // key : "Values"
-  // Get array values
-  const items = Object.values(countryList).map((value) => {
-    console.log(countryList[value]);
-    return value;
-  });
-
-  // Get array keys
-  const itemsKeys = Object.keys(countryList).map((key) => {
-    return key;
-  });
-
-  console.log(itemsKeys);
+function powerOutrage2(props) {
+  const { countryList } = props;
 
   return (
     <>
@@ -67,18 +34,18 @@ function powerOutrage() {
           >
             Power Outrage Mauritius
           </h1>
-          {isLoading && (
+          {/* {isLoading && (
             <div className="text-center text-xl text-gray-300 pt-20">
               Loading...
             </div>
-          )}
+          )} */}
           {Object.keys(countryList).map((key, i: Key) => (
             <div
               key={i}
               className="p-4 bg-gray-100 dark:bg-gray-400 rounded-lg flex flex-col gap-4 "
             >
               <div className="flex items-center gap-4">
-                <Link href={`/powerOutrage/${key}`}>
+                <Link href={`/powerOutrage2/${key}`}>
                   <div className="cursor-pointer font-bold text-xl uppercase tracking-wide">
                     {key}
                   </div>
@@ -93,4 +60,33 @@ function powerOutrage() {
   );
 }
 
-export default powerOutrage;
+// it prepares a prop for the component as named get static props
+// never visible on the client side
+export async function getStaticProps() {
+  const API_ENDPOINT =
+    "https://raw.githubusercontent.com/MrSunshyne/mauritius-dataset-electricity/main/data/power-outages.json";
+
+  const res = await fetch(API_ENDPOINT);
+  const countryList = await res.json();
+
+  // key : "Values"
+  // Get array values
+  const items = Object.values(countryList).map((value) => {
+    return value;
+  });
+
+  // Get array keys
+  const itemsKeys = Object.keys(countryList).map((key) => {
+    return key;
+  });
+
+  console.log("items -", items);
+
+  return {
+    props: {
+      countryList,
+    },
+  };
+}
+
+export default powerOutrage2;
