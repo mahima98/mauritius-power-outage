@@ -17,17 +17,17 @@ function powerOutrage2DetailPage(props: any) {
   // });
 
   return (
-    <section className="dark:bg-gray-600 h-screen">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="font-bold text-3xl uppercase py-8 text-center">
+    <section className="h-screen dark:bg-gray-600">
+      <div className="mx-auto max-w-7xl">
+        <h1 className="py-8 text-3xl font-bold text-center uppercase">
           {powerOutrageId} outrages
         </h1>
         {/* {isLoading && (
-          <div className="text-gray-300 text-xl text-center pt-8">
+          <div className="pt-8 text-xl text-center text-gray-300">
             Loading...
           </div>
         )} */}
-        <div className="flex justify-center items-center flex-wrap dark:bg-gray-600 pb-8">
+        {/* <div className="flex flex-wrap items-center justify-center pb-8 dark:bg-gray-600">
           {results[0] &&
             results[0]
               .slice(0)
@@ -43,7 +43,7 @@ function powerOutrage2DetailPage(props: any) {
                     className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[260px]"
                   >
                     <div>
-                      <h2 className="uppercase font-medium">
+                      <h2 className="font-medium uppercase">
                         {value.district}
                       </h2>
                       <div>
@@ -68,7 +68,7 @@ function powerOutrage2DetailPage(props: any) {
                   </div>
                 )
               )}
-        </div>
+        </div> */}
       </div>
     </section>
   );
@@ -83,45 +83,45 @@ async function getData() {
   return countryList;
 }
 
-export async function getStaticProps() {
-  const router = useRouter();
-  let powerOutrageId = router.query.powerOutrageId;
-  const countryList = await getData();
+// export async function getStaticProps() {
+//   const router = useRouter();
+//   let powerOutrageId = router.query.powerOutrageId;
+//   const countryList = await getData();
 
-  // key : "Values"
-  // Get array values
-  const items = Object.values(countryList).map((value) => {
-    return value;
-  });
+//   // key : "Values"
+//   // Get array values
+//   const items = Object.values(countryList).map((value) => {
+//     return value;
+//   });
 
-  // Get array keys
-  const itemsKeys = Object.keys(countryList).map((key) => {
-    return key;
-  });
+//   // Get array keys
+//   const itemsKeys = Object.keys(countryList).map((key) => {
+//     return key;
+//   });
 
-  const results = items.find((obj, i) => {
-    return obj[i].district === powerOutrageId;
-  });
+//   const results = items.find((obj, i) => {
+//     // return obj[i].district === powerOutrageId;
+//   });
 
-  console.log("items -", items);
+//   console.log("items -", items);
 
-  return {
-    props: {
-      countryList,
-      results,
-    },
-  };
-}
+//   return {
+//     props: {
+//       countryList,
+//       results,
+//     },
+//   };
+// }
 
-export async function getStaticPaths() {
-  const countryList = await getData();
+// export async function getStaticPaths() {
+//   const countryList = await getData();
 
-  console.log(countryList);
+//   console.log(countryList);
 
-  return {
-    paths: [{ params: {} }],
-    fallback: false,
-  };
-}
+//   return {
+//     paths: [{ params: {} }],
+//     fallback: false,
+//   };
+// }
 
 export default powerOutrage2DetailPage;
