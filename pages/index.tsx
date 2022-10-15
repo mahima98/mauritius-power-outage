@@ -20,28 +20,31 @@ const Home: NextPage = () => {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <>
-      <Head>
-        <title>Mahima ramgolam</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="px-8 w-full dark:bg-gray-600">
-        <section className="flex flex-col justify-center items-center max-w-7xl mx-auto">
-          <div className="p-10 text-center prose ">
-            <h2 className="text-4xl text-teal-600 dark:text-black font-medium tracking-tight mb-4 md:mb-2">
+      <head>
+        <title>Mahima Ramgolam</title>
+        <meta
+          property="og:image"
+          content="https://og-examples.vercel.sh/api/og"
+        />
+      </head>
+      <main className="w-full px-8 dark:bg-gray-600">
+        <section className="flex flex-col items-center justify-center mx-auto max-w-7xl">
+          <div className="p-10 prose text-center ">
+            <h2 className="mb-4 text-4xl font-medium tracking-tight text-teal-600 dark:text-black md:mb-2">
               Mahima Ramgolam
             </h2>
             <h3 className="md:text-xl ">Frontend Developer.</h3>
-            <p className="text-gray-800 dark:text-black leading-6 pt-0 md:pt-4">
+            <p className="pt-0 leading-6 text-gray-800 dark:text-black md:pt-4">
               Coding for fun and work. Building websites as I learn new tech to
               keep up with the trend and updates.
             </p>
           </div>
-          <div className="text-5xl flex gap-12 py-10 justify-center items-center text-gray-600 dark:text-black">
+          <div className="flex items-center justify-center gap-12 py-10 text-5xl text-gray-600 dark:text-black">
             <AiFillTwitterCircle />
             <AiFillLinkedin />
             <AiFillYoutube />
           </div>
-          <div className="relative mx-auto mt-12 bg-gradient-to-b from-teal-500 to-teal-50 rounded-full w-60 md:w-80 h-60 md:h-80 flex justify-center items-center overflow-hidden">
+          <div className="relative flex items-center justify-center mx-auto mt-12 overflow-hidden rounded-full bg-gradient-to-b from-teal-500 to-teal-50 w-60 md:w-80 h-60 md:h-80">
             <Image
               src={myPic}
               alt="profile pic"
@@ -51,9 +54,9 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto">
-          <div className="service-offer prose py-12  dark:text-black">
-            <h3 className="text-3xl text-gray-600  dark:text-black tracking-tight">
+        <section className="mx-auto max-w-7xl">
+          <div className="py-12 prose service-offer dark:text-black">
+            <h3 className="text-3xl tracking-tight text-gray-600 dark:text-black">
               Service I offer
             </h3>
             <p>
@@ -71,39 +74,39 @@ const Home: NextPage = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-8 justify-center items-center w-full py-10 ">
-            <div className="rounded px-6 py-10 text-center prose shadow-lg flex flex-col justify-center items-center dark:bg-white">
-              <BsFillMoonStarsFill className="cursor-pointer text-2xl text-center" />
+          <div className="flex flex-wrap items-center justify-center w-full gap-8 py-10 ">
+            <div className="flex flex-col items-center justify-center px-6 py-10 prose text-center rounded shadow-lg dark:bg-white">
+              <BsFillMoonStarsFill className="text-2xl text-center cursor-pointer" />
               <h3>Designing tool</h3>
               <p className="m-0 text-sm text-gray-800 font-medium max-w-[350px]">
                 Creating elegants design suited for for your needs following
                 core design theory
               </p>
-              <h4 className="text-teal-500 text-sm">Design tools | use</h4>
+              <h4 className="text-sm text-teal-500">Design tools | use</h4>
               <p className="m-0">Figma</p>
               <p className="m-0">Photoshop</p>
               <p className="m-0">Adobe XD</p>
             </div>
-            <div className="rounded px-6 py-10 text-center prose shadow-lg flex flex-col justify-center items-center dark:bg-white">
-              <BsFillMoonStarsFill className="cursor-pointer text-2xl text-center" />
+            <div className="flex flex-col items-center justify-center px-6 py-10 prose text-center rounded shadow-lg dark:bg-white">
+              <BsFillMoonStarsFill className="text-2xl text-center cursor-pointer" />
               <h3>Designing tool</h3>
               <p className="m-0 text-sm text-gray-800 font-medium max-w-[350px]">
                 Creating elegants design suited for for your needs following
                 core design theory
               </p>
-              <h4 className="text-teal-500 text-sm">Design tools | use</h4>
+              <h4 className="text-sm text-teal-500">Design tools | use</h4>
               <p className="m-0">Figma</p>
               <p className="m-0">Photoshop</p>
               <p className="m-0">Adobe XD</p>
             </div>
-            <div className="rounded px-6 py-10 text-center prose shadow-lg flex flex-col justify-center items-center dark:bg-white">
-              <BsFillMoonStarsFill className="cursor-pointer text-2xl text-center" />
+            <div className="flex flex-col items-center justify-center px-6 py-10 prose text-center rounded shadow-lg dark:bg-white">
+              <BsFillMoonStarsFill className="text-2xl text-center cursor-pointer" />
               <h3>Designing tool</h3>
               <p className="m-0 text-sm text-gray-800 font-medium max-w-[350px]">
                 Creating elegants design suited for for your needs following
                 core design theory
               </p>
-              <h4 className="text-teal-500 text-sm">Design tools | use</h4>
+              <h4 className="text-sm text-teal-500">Design tools | use</h4>
               <p className="m-0">Figma</p>
               <p className="m-0">Photoshop</p>
               <p className="m-0">Adobe XD</p>
@@ -111,9 +114,9 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto py-16">
-          <div className="prose  dark:text-black">
-            <h3 className="text-3xl text-gray-600  dark:text-black tracking-tight">
+        <section className="py-16 mx-auto max-w-7xl">
+          <div className="prose dark:text-black">
+            <h3 className="text-3xl tracking-tight text-gray-600 dark:text-black">
               Portfolio
             </h3>
             <p>
@@ -125,46 +128,46 @@ const Home: NextPage = () => {
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10 md:flex-row md:flex-wrap">
-            <div className="basis-1/3 md:basis-1/4 flex-1">
+            <div className="flex-1 basis-1/3 md:basis-1/4">
               <Image
                 src={design1}
-                className="rounded-lg object-cover"
+                className="object-cover rounded-lg"
                 width={"100%"}
                 height={"100%"}
                 layout="responsive"
               />
             </div>
-            <div className="basis-1/3 md:basis-1/4 flex-1">
+            <div className="flex-1 basis-1/3 md:basis-1/4">
               <Image
                 src={design2}
-                className="rounded-lg object-cover"
+                className="object-cover rounded-lg"
                 width={"100%"}
                 height={"100%"}
                 layout="responsive"
               />
             </div>
-            <div className="basis-1/3 md:basis-1/4 flex-1">
+            <div className="flex-1 basis-1/3 md:basis-1/4">
               <Image
                 src={design3}
-                className="rounded-lg object-cover"
+                className="object-cover rounded-lg"
                 width={"100%"}
                 height={"100%"}
                 layout="responsive"
               />
             </div>
-            <div className="basis-1/3 md:basis-1/4 flex-1">
+            <div className="flex-1 basis-1/3 md:basis-1/4">
               <Image
                 src={design4}
-                className="rounded-lg object-cover"
+                className="object-cover rounded-lg"
                 width={"100%"}
                 height={"100%"}
                 layout="responsive"
               />
             </div>
-            <div className="basis-1/3 md:basis-1/4 flex-1">
+            <div className="flex-1 basis-1/3 md:basis-1/4">
               <Image
                 src={design4}
-                className="rounded-lg object-cover"
+                className="object-cover rounded-lg"
                 width={"100%"}
                 height={"100%"}
                 layout="responsive"

@@ -9,7 +9,7 @@ export default function () {
     (
       <div
         style={{
-          fontSize: 128,
+          fontSize: 100,
           background: "white",
           width: "100%",
           height: "100%",
@@ -19,7 +19,7 @@ export default function () {
           justifyContent: "center",
         }}
       >
-        Hello world!
+        Mahima Ramgolam
       </div>
     ),
     {
