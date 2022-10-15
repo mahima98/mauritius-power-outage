@@ -20,13 +20,13 @@ const Home: NextPage = () => {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <>
-      <head>
+      <Head>
         <title>Mahima Ramgolam</title>
         <meta
           property="og:image"
           content="https://mahima-portfolio.vercel.app/api/og"
         />
-      </head>
+      </Head>
       <main className="w-full px-8 dark:bg-gray-600">
         <section className="flex flex-col items-center justify-center mx-auto max-w-7xl">
           <div className="p-10 prose text-center ">
