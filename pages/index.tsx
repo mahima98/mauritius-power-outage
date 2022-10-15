@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <title>Mahima Ramgolam</title>
         <meta
           property="og:image"
-          content="https://og-examples.vercel.sh/api/og"
+          content="https://https://mahima-portfolio.vercel.app/api/og"
         />
       </head>
       <main className="w-full px-8 dark:bg-gray-600">
