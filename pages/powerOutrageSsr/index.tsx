@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Key, useEffect, useState } from "react";
+import { Key } from "react";
 import { ImPower } from "react-icons/im";
 
 export interface product {
@@ -17,7 +17,7 @@ export interface Countries {
   to: string;
 }
 
-function powerOutrage2(props) {
+export default function powerOutrage2(props: any) {
   const { countryList } = props;
 
   return (
@@ -27,26 +27,26 @@ function powerOutrage2(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="power-outrage dark:bg-gray-600 md:pt-4">
-        <div className="p-6 flex flex-col gap-4 max-w-7xl mx-auto">
+        <div className="flex flex-col gap-4 p-6 mx-auto max-w-7xl">
           <h1
-            className="font-medium md:text-4xl text-3xl text-center pb-8 md:pb-4 text-white"
+            className="pb-8 text-3xl font-medium text-center text-white md:text-4xl md:pb-4"
             style={{ textShadow: "#30D5C8 1px 0 8px" }}
           >
             Power Outrage Mauritius
           </h1>
           {/* {isLoading && (
-            <div className="text-center text-xl text-gray-300 pt-20">
+            <div className="pt-20 text-xl text-center text-gray-300">
               Loading...
             </div>
           )} */}
           {Object.keys(countryList).map((key, i: Key) => (
             <div
               key={i}
-              className="p-4 bg-gray-100 dark:bg-gray-400 rounded-lg flex flex-col gap-4 "
+              className="flex flex-col gap-4 p-4 bg-gray-100 rounded-lg dark:bg-gray-400 "
             >
               <div className="flex items-center gap-4">
-                <Link href={`/powerOutrage2/${key}`}>
-                  <div className="cursor-pointer font-bold text-xl uppercase tracking-wide">
+                <Link href={`/powerOutrageSsr/${key}`}>
+                  <div className="text-xl font-bold tracking-wide uppercase cursor-pointer">
                     {key}
                   </div>
                 </Link>
@@ -69,6 +69,16 @@ export async function getStaticProps() {
   const res = await fetch(API_ENDPOINT);
   const countryList = await res.json();
 
+  if (!countryList) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+      notFound: true,
+    };
+  }
+
   // key : "Values"
   // Get array values
   const items = Object.values(countryList).map((value) => {
@@ -88,5 +98,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default powerOutrage2;

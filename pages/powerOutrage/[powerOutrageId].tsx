@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-function powerOutrageDetailPage() {
+export default function powerOutrageDetailPage() {
   const router = useRouter();
   const powerOutrageId = router.query.powerOutrageId;
 
@@ -26,22 +26,28 @@ function powerOutrageDetailPage() {
     return value;
   });
 
+  const itemsKey = Object.keys(loadedOutrages).map((key) => {
+    return key;
+  });
+
+  console.log("keys", itemsKey);
+
   const results = items.filter((obj, i) => {
     return obj[i].district === powerOutrageId;
   });
 
   return (
-    <section className="dark:bg-gray-600 h-screen">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="font-bold text-3xl uppercase py-8 text-center">
+    <section className="h-screen dark:bg-gray-600">
+      <div className="mx-auto max-w-7xl">
+        <h1 className="py-8 text-3xl font-bold text-center uppercase">
           {powerOutrageId} outrages
         </h1>
         {isLoading && (
-          <div className="text-gray-300 text-xl text-center pt-8">
+          <div className="pt-8 text-xl text-center text-gray-300">
             Loading...
           </div>
         )}
-        <div className="flex justify-center items-center flex-wrap dark:bg-gray-600 pb-8">
+        <div className="flex flex-wrap items-center justify-center pb-8 dark:bg-gray-600">
           {results[0] &&
             results[0]
               .slice(0)
@@ -57,7 +63,7 @@ function powerOutrageDetailPage() {
                     className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[260px]"
                   >
                     <div>
-                      <h2 className="uppercase font-medium">
+                      <h2 className="font-medium uppercase">
                         {value.district}
                       </h2>
                       <div>
@@ -87,5 +93,3 @@ function powerOutrageDetailPage() {
     </section>
   );
 }
-
-export default powerOutrageDetailPage;
