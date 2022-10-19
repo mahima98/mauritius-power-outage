@@ -19,8 +19,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Mahima ramgolam</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Mahima Ramgolam</title>
+        <meta
+          property="og:image"
+          content="https://mahima-portfolio.vercel.app/api/og"
+        />
       </Head>
       <main className="w-full px-8 dark:bg-gray-600">
         <section className="flex flex-col items-center justify-center mx-auto max-w-7xl">
