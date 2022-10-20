@@ -16,6 +16,11 @@ import {
 
 const Home: NextPage = () => {
   const [darkMode, setDarkMode] = useState(false);
+
+  // const myPic = ({ src, width, quality }) => {
+  //   return `https://mahima-portfolio.vercel.app/${src}?w=${width}&q=${quality || 75}`
+  // }
+
   return (
     <>
       <Head>
@@ -45,6 +50,7 @@ const Home: NextPage = () => {
           <div className="relative flex items-center justify-center mx-auto mt-12 overflow-hidden rounded-full bg-gradient-to-b from-teal-500 to-teal-50 w-60 md:w-80 h-60 md:h-80">
             <Image
               src={myPic}
+              placeholder="blur"
               alt="profile pic"
               layout="fill"
               objectFit="cover"
