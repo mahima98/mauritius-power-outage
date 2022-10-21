@@ -3,6 +3,20 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 import { HiOutlineLightBulb } from "react-icons/hi";
 
 export default function Header({ darkMode, setDarkMode }: any) {
+  const routes = [
+    {
+      name: "Power outrage",
+      path: "/powerOutrage",
+    },
+    {
+      name: "Power outrage",
+      path: "/powerOutrage",
+    },
+    {
+      name: "Events",
+      path: "/events",
+    },
+  ];
   return (
     <nav className=" dark:bg-gray-600">
       <div className="flex flex-col justify-between gap-4 px-4 py-6 mx-auto border-gray-500 md:flex-row md:gap-0 max-w-7xl dark:border-b">
@@ -11,42 +25,40 @@ export default function Header({ darkMode, setDarkMode }: any) {
             developedByMahi
           </h1>
         </Link>
-        <ul className="flex items-center justify-center gap-8">
-          <li className="px-2 py-2 rounded md:px-4 hover:bg-gray-100">
+        <ul className="flex items-center justify-center gap-2">
+          <li className="px-2 py-2 rounded md:px-2 hover:bg-gray-100">
             <Link href="/powerOutrage">
-              <a className="text-sm font-semibold">Power outrage</a>
+              <a className="text-xs font-semibold md:text-sm">Power outrage</a>
             </Link>
           </li>
-          <li className="px-2 py-2 rounded md:px-4 hover:bg-gray-100">
+          <li className="px-2 py-2 rounded md:px-2 hover:bg-gray-100">
             <Link href="/powerOutrageSsr">
-              <a className="text-sm font-semibold">Power outrage (SSR)</a>
+              <a className="text-xs font-semibold md:text-sm">
+                Power outrage(SSR)
+              </a>
+            </Link>
+          </li>
+          <li className="px-2 py-2 rounded md:px-2 hover:bg-gray-100">
+            <Link href="/events">
+              <a className="text-xs font-semibold md:text-sm">Events(ISR)</a>
             </Link>
           </li>
           {!darkMode && (
             <li>
               <BsFillMoonStarsFill
                 onClick={() => setDarkMode(!darkMode)}
-                className="text-2xl cursor-pointer"
+                className="ml-8 text-2xl cursor-pointer"
               />
             </li>
           )}
           {darkMode && (
-            <li className="dark:text-white">
+            <li className="ml-8 dark:text-white">
               <HiOutlineLightBulb
                 onClick={() => setDarkMode(!darkMode)}
                 className="text-lg cursor-pointer md:text-3xl"
               />
             </li>
           )}
-
-          <li>
-            <a
-              href="#"
-              className="px-4 py-2 text-white rounded bg-gradient-to-r from-cyan-500 to-teal-200 dark:text-gray-800"
-            >
-              Resume
-            </a>
-          </li>
         </ul>
       </div>
     </nav>
