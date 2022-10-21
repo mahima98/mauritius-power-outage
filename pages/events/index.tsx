@@ -25,9 +25,7 @@ export default function events({ events }) {
                 <p className="text-xl font-semibold text-gray-900">
                   {event.title}
                 </p>
-                <p className="mt-3 text-base text-gray-500">
-                  {event.description}
-                </p>
+                <p className="mt-3 text-base text-gray-500">{event.body}</p>
               </a>
               <div className="mt-3">
                 <a
@@ -45,17 +43,20 @@ export default function events({ events }) {
   );
 }
 
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:4000/events");
+export async function getServerSideProps(context) {
+  //TRY WITH GITHUB
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const events = await res.json();
+
+  if (!events) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
       events,
     },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 10, // In seconds
   };
 }
