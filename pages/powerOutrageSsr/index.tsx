@@ -34,25 +34,20 @@ export default function powerOutrage2(props: any) {
           >
             Power Outrage Mauritius
           </h1>
-          {/* {isLoading && (
-            <div className="pt-20 text-xl text-center text-gray-300">
-              Loading...
-            </div>
-          )} */}
           {Object.keys(countryList).map((key, i: Key) => (
-            <div
-              key={i}
-              className="flex flex-col gap-4 p-4 bg-gray-100 rounded-lg dark:bg-gray-400 "
-            >
-              <div className="flex items-center gap-4">
-                <Link href={`/powerOutrageSsr/${key}`}>
+            <Link href={`/powerOutrageSsr/${key}`}>
+              <div
+                key={i}
+                className="flex flex-col gap-4 p-4 transition-all ease-in-out bg-gray-100 rounded-lg cursor-pointer dark:bg-gray-400 hover:shadow-md dark:hover:bg-gray-500"
+              >
+                <div className="flex items-center gap-4">
                   <div className="text-xl font-bold tracking-wide uppercase cursor-pointer">
                     {key}
                   </div>
-                </Link>
-                <ImPower />
+                  <ImPower />
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

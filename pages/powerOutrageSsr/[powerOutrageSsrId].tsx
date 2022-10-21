@@ -59,7 +59,7 @@ export default function powerOutrage2DetailPage(props: any) {
                   key={i}
                   className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[260px]"
                 >
-                  <div>
+                  <div className="flex flex-col gap-2">
                     <h2 className="font-medium uppercase">{value.district}</h2>
                     <div>
                       <span className="font-medium">from </span>(
@@ -69,6 +69,10 @@ export default function powerOutrage2DetailPage(props: any) {
                         year: "numeric",
                       }).format(new Date(value.from))}{" "}
                       )
+                    </div>
+                    <div className="max-w-[250px] line-clamp-1">
+                      <span className="font-medium ">Streets: </span>
+                      {value.streets}
                     </div>
                     <div>
                       <span className="font-medium">To </span> (
