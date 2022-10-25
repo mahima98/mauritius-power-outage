@@ -70,10 +70,7 @@ export default function powerOutrage2DetailPage(props: any) {
                       }).format(new Date(value.from))}{" "}
                       )
                     </div>
-                    <div className="max-w-[250px] line-clamp-1">
-                      <span className="font-medium ">Streets: </span>
-                      {value.streets}
-                    </div>
+
                     <div>
                       <span className="font-medium">To </span> (
                       {new Intl.DateTimeFormat("en-GB", {
@@ -82,6 +79,10 @@ export default function powerOutrage2DetailPage(props: any) {
                         year: "numeric",
                       }).format(new Date(value.to))}
                       )
+                    </div>
+                    <div className="max-w-[250px] line-clamp-1">
+                      <span className="font-medium ">Streets: </span>
+                      {value.streets}
                     </div>
                   </div>
                 </div>

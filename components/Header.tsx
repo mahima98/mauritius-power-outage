@@ -25,7 +25,7 @@ export default function Header({ darkMode, setDarkMode }: any) {
             developedByMahi
           </h1>
         </Link>
-        <ul className="flex items-center justify-center gap-2">
+        <ul className="flex items-center justify-center md:gap-2">
           <li className="px-2 py-2 rounded md:px-2 hover:bg-gray-100">
             <Link href="/powerOutrage">
               <a className="text-xs font-semibold md:text-sm">Power outrage</a>
@@ -47,7 +47,7 @@ export default function Header({ darkMode, setDarkMode }: any) {
             <li>
               <BsFillMoonStarsFill
                 onClick={() => setDarkMode(!darkMode)}
-                className="ml-8 text-2xl cursor-pointer"
+                className="ml-8 text-lg cursor-pointer md:text-2xl"
               />
             </li>
           )}
