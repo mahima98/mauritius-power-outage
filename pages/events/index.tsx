@@ -52,7 +52,7 @@ export default function events({ events }: any) {
 
 export async function getStaticProps() {
   //ISR
-  const res = await fetch("http://127.0.0.1:4000/events");
+  const res = await fetch("http://10.9.0.83/events");
   const events = await res.json();
 
   return {
