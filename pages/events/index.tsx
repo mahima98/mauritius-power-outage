@@ -25,7 +25,9 @@ export default function events({ events }) {
                 <p className="text-xl font-semibold text-gray-900">
                   {event.title}
                 </p>
-                <p className="mt-3 text-base text-gray-500">{event.body}</p>
+                <p className="mt-3 text-base text-gray-500">
+                  {event.description}
+                </p>
               </a>
               <div className="mt-3">
                 <a
@@ -43,9 +45,9 @@ export default function events({ events }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  //TRY WITH GITHUB
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+export async function getStaticProps() {
+  //ISR
+  const res = await fetch("http://localhost:4000/events");
   const events = await res.json();
 
   if (!events) {
@@ -58,5 +60,6 @@ export async function getServerSideProps(context) {
     props: {
       events,
     },
+    revalidate: 10,
   };
 }
