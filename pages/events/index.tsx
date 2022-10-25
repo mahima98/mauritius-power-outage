@@ -51,13 +51,11 @@ export default function events({ events }: any) {
 }
 
 export async function getStaticProps() {
-  //ISR
-  const res = await fetch("http://10.9.0.83/events");
-  const events = await res.json();
+  //ISR //DirectUs
+  const res = await fetch("https://at65wn5m.directus.app/items/Events");
+  const data = await res.json();
 
-  if (!res.ok) {
-    throw new Error(`Failed to fetch posts, received status ${res.status}`);
-  }
+  const events = data.data;
 
   return {
     props: {
