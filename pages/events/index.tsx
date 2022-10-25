@@ -55,12 +55,6 @@ export async function getStaticProps() {
   const res = await fetch("http://localhost:4000/events");
   const events = await res.json();
 
-  if (!events) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
     props: {
       events,
