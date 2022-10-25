@@ -1,4 +1,9 @@
-export default function events({ events }) {
+interface eventType {
+  title: string;
+  description: string;
+}
+
+export default function events({ events }: any) {
   return (
     <div className="px-4 pt-16 pb-20 bg-white sm:px-6 lg:px-8 lg:pt-24 lg:pb-28 dark:bg-gray-600">
       <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
@@ -13,7 +18,7 @@ export default function events({ events }) {
           </div>
         </div>
         <div className="grid gap-16 pt-10 mt-6 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-          {events.map((event) => (
+          {events.map((event: eventType) => (
             <div
               key={event.title}
               className="p-4 bg-gray-100 rounded hover:bg-gray-200"
