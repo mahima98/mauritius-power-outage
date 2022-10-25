@@ -55,6 +55,10 @@ export async function getStaticProps() {
   const res = await fetch("http://10.9.0.83/events");
   const events = await res.json();
 
+  if (!res.ok) {
+    throw new Error(`Failed to fetch posts, received status ${res.status}`);
+  }
+
   return {
     props: {
       events,
