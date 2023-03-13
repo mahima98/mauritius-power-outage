@@ -47,7 +47,7 @@ export default function powerOutrageDetailPage() {
             Loading...
           </div>
         )}
-        <div className="flex flex-wrap items-center justify-center pb-8 dark:bg-gray-600">
+        <div className="flex flex-wrap items-center justify-right pb-8 dark:bg-gray-600">
           {results[0] &&
             results[0]
               .slice(0)
@@ -67,22 +67,26 @@ export default function powerOutrageDetailPage() {
                         {value.district}
                       </h2>
                       <div>
-                        <span className="font-medium">from </span>(
+                        <span className="font-medium">Date: </span>
                         {new Intl.DateTimeFormat("en-GB", {
                           month: "long",
                           day: "2-digit",
                           year: "numeric",
                         }).format(new Date(value.from))}{" "}
-                        )
-                      </div>
-                      <div>
-                        <span className="font-medium">To </span> (
-                        {new Intl.DateTimeFormat("en-GB", {
-                          month: "long",
-                          day: "2-digit",
-                          year: "numeric",
-                        }).format(new Date(value.to))}
-                        )
+                        <div>
+                          <span className="font-medium">Time: </span>
+                          {new Intl.DateTimeFormat("en-GB", {
+                            hour: "2-digit",
+                            dayPeriod: "short",
+                            minute: "2-digit",
+                          }).format(new Date(value.from))}
+                          <span className="px-1">-</span>
+                          {new Intl.DateTimeFormat("en-GB", {
+                            hour: "2-digit",
+                            dayPeriod: "short",
+                            minute: "2-digit",
+                          }).format(new Date(value.to))}
+                        </div>
                       </div>
                     </div>
                   </div>

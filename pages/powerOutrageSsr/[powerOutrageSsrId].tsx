@@ -62,23 +62,27 @@ export default function powerOutrage2DetailPage(props: any) {
                   <div className="flex flex-col gap-2">
                     <h2 className="font-medium uppercase">{value.district}</h2>
                     <div>
-                      <span className="font-medium">from </span>(
+                      <span className="font-medium">from: </span>
                       {new Intl.DateTimeFormat("en-GB", {
                         month: "long",
                         day: "2-digit",
                         year: "numeric",
                       }).format(new Date(value.from))}{" "}
-                      )
                     </div>
 
                     <div>
-                      <span className="font-medium">To </span> (
+                      <span className="font-medium">Time: </span>
                       {new Intl.DateTimeFormat("en-GB", {
-                        month: "long",
-                        day: "2-digit",
-                        year: "numeric",
+                        hour: "2-digit",
+                        dayPeriod: "short",
+                        minute: "2-digit",
+                      }).format(new Date(value.from))}
+                      <span className="px-1">-</span>
+                      {new Intl.DateTimeFormat("en-GB", {
+                        hour: "2-digit",
+                        dayPeriod: "short",
+                        minute: "2-digit",
                       }).format(new Date(value.to))}
-                      )
                     </div>
                     <div className="max-w-[250px] line-clamp-1">
                       <span className="font-medium ">Streets: </span>
