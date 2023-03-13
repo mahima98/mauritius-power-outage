@@ -52,7 +52,7 @@ export default function events({ events }: any) {
 
 export async function getStaticProps() {
   //ISR //DirectUs
-  const res = await fetch("https://at65wn5m.directus.app/items/Events");
+  const res = await fetch("https://at65wn5m.directus.app/items/events");
   const data = await res.json();
 
   const events = data.data;
