@@ -47,7 +47,7 @@ export default function powerOutrageDetailPage() {
             Loading...
           </div>
         )}
-        <div className="flex flex-wrap items-center justify-right pb-8 dark:bg-gray-600">
+        <div className="flex flex-wrap items-center justify-center md:justify-right pb-8 dark:bg-gray-600">
           {results[0] &&
             results[0]
               .slice(0)
@@ -60,7 +60,7 @@ export default function powerOutrageDetailPage() {
                 ) => (
                   <div
                     key={i}
-                    className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[260px]"
+                    className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[300px]"
                   >
                     <div>
                       <h2 className="font-medium uppercase">
@@ -87,6 +87,10 @@ export default function powerOutrageDetailPage() {
                             minute: "2-digit",
                           }).format(new Date(value.to))}
                         </div>
+                        <div className="max-w-[250px] line-clamp-1">
+                      <span className="font-medium ">Streets: </span>
+                      {value.streets}
+                    </div>
                       </div>
                     </div>
                   </div>

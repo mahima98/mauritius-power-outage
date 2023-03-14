@@ -25,7 +25,7 @@ export default function Header({ darkMode, setDarkMode }: any) {
             developedByMahi
           </h1> */}
 
-          <div className="rotate-90 cursor-pointer">
+          <div className="hidden  md:flex rotate-90 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"

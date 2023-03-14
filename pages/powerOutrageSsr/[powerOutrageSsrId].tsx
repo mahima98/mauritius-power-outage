@@ -57,7 +57,7 @@ export default function powerOutrage2DetailPage(props: any) {
               .map((value, i) => (
                 <div
                   key={i}
-                  className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[260px]"
+                  className="p-6 m-1 bg-gray-200 dark:bg-gray-400 inline-block rounded-lg text-gray-900 dark:text-gray-900 md:w-auto w-[300px]"
                 >
                   <div className="flex flex-col gap-2">
                     <h2 className="font-medium uppercase">{value.district}</h2>
