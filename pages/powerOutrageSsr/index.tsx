@@ -23,7 +23,7 @@ export default function powerOutrage2(props: any) {
   return (
     <>
       <Head>
-        <title>Power Outrages</title>
+        <title>Power Outages</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="power-outrage dark:bg-gray-600 md:pt-4">
@@ -32,7 +32,7 @@ export default function powerOutrage2(props: any) {
             className="pb-8 text-3xl font-medium text-center text-white md:text-4xl md:pb-4"
             style={{ textShadow: "#30D5C8 1px 0 8px" }}
           >
-            Power Outrage Mauritius
+            Power Outage Mauritius
           </h1>
           {Object.keys(countryList).map((key, i: Key) => (
             <Link href={`/powerOutrageSsr/${key}`}>

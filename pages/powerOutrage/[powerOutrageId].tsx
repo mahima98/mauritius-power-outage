@@ -40,7 +40,7 @@ export default function powerOutrageDetailPage() {
     <section className="h-screen dark:bg-gray-600">
       <div className="mx-auto max-w-7xl">
         <h1 className="py-8 text-3xl font-bold text-center uppercase">
-          {powerOutrageId} outrages
+          {powerOutrageId} outages
         </h1>
         {isLoading && (
           <div className="pt-8 text-xl text-center text-gray-300">

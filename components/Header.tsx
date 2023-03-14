@@ -5,12 +5,12 @@ import { HiOutlineLightBulb } from "react-icons/hi";
 export default function Header({ darkMode, setDarkMode }: any) {
   const routes = [
     {
-      name: "Power outrage",
-      path: "/powerOutrage",
+      name: "Power outage",
+      path: "/powerOutage",
     },
     {
-      name: "Power outrage",
-      path: "/powerOutrage",
+      name: "Power outage",
+      path: "/powerOutage",
     },
     {
       name: "Events",
@@ -45,14 +45,14 @@ export default function Header({ darkMode, setDarkMode }: any) {
         </Link>
         <ul className="flex items-center justify-center md:gap-2">
           <li className="px-2 py-2 rounded md:px-2 hover:bg-gray-100">
-            <Link href="/powerOutrage">
-              <a className="text-xs font-semibold md:text-sm">Power outrage</a>
+            <Link href="/powerOutage">
+              <a className="text-xs font-semibold md:text-sm">Power outage</a>
             </Link>
           </li>
           <li className="px-2 py-2 rounded md:px-2 hover:bg-gray-100">
-            <Link href="/powerOutrageSsr">
+            <Link href="/powerOutageSsr">
               <a className="text-xs font-semibold md:text-sm">
-                Power outrage(SSR)
+                Power outage(SSR)
               </a>
             </Link>
           </li>

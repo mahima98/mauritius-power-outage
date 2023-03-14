@@ -46,7 +46,7 @@ export default function powerOutrage2DetailPage(props: any) {
     <section className="h-screen dark:bg-gray-600">
       <div className="mx-auto max-w-7xl">
         <h1 className="py-8 text-3xl font-bold text-center uppercase">
-          {countryName} outrages
+          {countryName} outages
         </h1>
         <div className="flex flex-wrap items-center justify-center pb-8 dark:bg-gray-600">
           {itemsValue &&

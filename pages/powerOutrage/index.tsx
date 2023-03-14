@@ -56,7 +56,7 @@ function powerOutrage() {
   return (
     <>
       <Head>
-        <title>Power Outrages</title>
+        <title>Power Outages</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="power-outrage dark:bg-gray-600 md:pt-4">
@@ -65,7 +65,7 @@ function powerOutrage() {
             className="font-medium md:text-4xl text-3xl text-center pb-8 md:pb-4 text-white"
             style={{ textShadow: "#30D5C8 1px 0 8px" }}
           >
-            Power Outrage Mauritius
+            Power Outage Mauritius
           </h1>
           {isLoading && (
             <div className="text-center text-xl text-gray-300 pt-20">

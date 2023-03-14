@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         />
       </Head>
       <main className="flex flex-col gap-24 justify-center items-center w-full h-[90vh]  px-8 dark:bg-gray-600">
-        <h1 className="text-4xl font-medium">Mauritius power outrages</h1>
+        <h1 className="text-4xl font-medium">Mauritius power outages</h1>
 
         <div className="w-96 h-96">
           <Image
