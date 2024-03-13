@@ -17,14 +17,14 @@ export default function events({ events }: any) {
             </p>
           </div>
         </div>
-        <div className="grid gap-4 pt-10 mt-6 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
+        {/* <div className="grid gap-4 pt-10 mt-6 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
           {events.map((event: eventType) => (
             <div
               key={event.title}
               className="inline-block p-4 bg-gray-100 rounded hover:bg-gray-200"
             >
               <p className="text-sm text-gray-500">
-                {/* <time dateTime={event.datetime}>{event.date}</time> */}
+                <time dateTime={event.datetime}>{event.date}</time>
               </p>
               <a href="#" className="block mt-2">
                 <p className="text-xl font-semibold text-gray-900">
@@ -44,23 +44,23 @@ export default function events({ events }: any) {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
 
-export async function getStaticProps() {
-  //ISR //DirectUs
-  const res = await fetch("https://at65wn5m.directus.app/items/events");
-  const data = await res.json();
+// export async function getStaticProps() {
+//   //ISR //DirectUs
+//   const res = await fetch("https://at65wn5m.directus.app/items/events");
+//   const data = await res.json();
 
-  const events = data.data;
+//   const events = data.data;
 
-  return {
-    props: {
-      events,
-    },
-    revalidate: 5,
-  };
-}
+//   return {
+//     props: {
+//       events,
+//     },
+//     revalidate: 5,
+//   };
+// }
