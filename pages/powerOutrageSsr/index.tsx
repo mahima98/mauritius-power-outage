@@ -26,29 +26,31 @@ export default function powerOutrage2(props: any) {
         <title>Power Outages</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="power-outrage dark:bg-gray-600 md:pt-4">
-        <div className="flex flex-col gap-4 p-6 mx-auto max-w-7xl">
-          <h1
-            className="pb-8 text-3xl font-medium text-center text-white md:text-4xl md:pb-4"
-            style={{ textShadow: "#30D5C8 1px 0 8px" }}
+      <div className="power-outrage dark:bg-gray-600 ">
+        <div className="flex flex-col  mx-auto max-w-7xl">
+           <h1
+            className="py-12 font-medium text-3xl text-center  text-black underline  decoration-4 underline-offset-8 decoration-red-400"
           >
             Power Outage Mauritius
           </h1>
-          {Object.keys(countryList).map((key, i: Key) => (
-            <Link href={`/powerOutrageSsr/${key}`}>
+        <p className="text-lg text-black font-medium text-center pb-12">Pick a region:</p>
+
+            <div className="flex flex-wrap items-center justify-center gap-6">
+            {Object.keys(countryList).map((key, i: Key) => (
               <div
                 key={i}
-                className="flex flex-col gap-4 p-4 transition-all ease-in-out bg-gray-100 rounded-lg cursor-pointer dark:bg-gray-400 hover:shadow-md dark:hover:bg-gray-500"
               >
-                <div className="flex items-center gap-4">
-                  <div className="text-xl font-bold tracking-wide uppercase cursor-pointer">
-                    {key}
+                <Link href={`/powerOutrageSsr/${key}`}>
+                  <div className="p-4 bg-gray-100 dark:bg-gray-400 rounded-lg flex items-center gap-4 cursor-pointer ">
+                    <ImPower />
+                    <div className="font-bold text-xl uppercase tracking-wide">
+                      {key}
+                    </div>
                   </div>
-                  <ImPower />
-                </div>
+                </Link>
               </div>
-            </Link>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

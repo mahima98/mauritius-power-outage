@@ -59,34 +59,36 @@ function powerOutrage() {
         <title>Power Outages</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="power-outrage dark:bg-gray-600 pt-6 md:pt-4">
-        <div className="p-6 flex flex-col gap-4 max-w-7xl mx-auto">
+      <div className="power-outrage dark:bg-gray-600 ">
+        <div className=" flex flex-col  max-w-7xl mx-auto">
           <h1
-            className="font-medium md:text-4xl text-3xl text-center pb-8 md:pb-4 text-white"
-            style={{ textShadow: "#30D5C8 1px 0 8px" }}
+            className="py-12 font-medium text-3xl text-center  text-black underline  decoration-4 underline-offset-8 decoration-yellow-400"
           >
             Power Outage Mauritius
           </h1>
+        <p className="text-lg text-black font-medium text-center pb-12">Pick a region:</p>
+
           {isLoading && (
             <div className="text-center text-xl text-gray-300 pt-20">
               Loading...
             </div>
           )}
-          {Object.keys(countryList).map((key, i: Key) => (
-            <div
-              key={i}
-              className="p-4 bg-gray-100 dark:bg-gray-400 rounded-lg flex flex-col gap-4 "
-            >
-              <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            {Object.keys(countryList).map((key, i: Key) => (
+              <div
+                key={i}
+              >
                 <Link href={`/powerOutrage/${key}`}>
-                  <div className="cursor-pointer font-bold text-xl uppercase tracking-wide">
-                    {key}
+                  <div className="p-4 bg-gray-100 dark:bg-gray-400 rounded-lg flex items-center gap-4 cursor-pointer ">
+                    <ImPower />
+                    <div className="font-bold text-xl uppercase tracking-wide">
+                      {key}
+                    </div>
                   </div>
                 </Link>
-                <ImPower />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>
