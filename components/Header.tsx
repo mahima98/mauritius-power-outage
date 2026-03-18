@@ -18,8 +18,8 @@ export default function Header({ darkMode, setDarkMode }: any) {
     },
   ];
   return (
-    <nav className=" dark:bg-gray-600 h-[10vh]">
-      <div className="flex flex-col justify-between gap-4 px-4 py-6 mx-auto border-gray-500 md:flex-row md:gap-0 max-w-7xl dark:border-b">
+    <nav className=" dark:bg-gray-600 h-[10vh] ">
+      <div className="flex flex-col justify-between px-4  gap-4 py-6 mx-auto border-gray-500 md:flex-row md:gap-0 max-w-7xl dark:border-b">
         <Link href="/">
           {/* <h1 className="flex items-center justify-center text-xl font-semibold cursor-pointer rsor-pointer font-burtons">
             developedByMahi

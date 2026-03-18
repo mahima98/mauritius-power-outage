@@ -3,6 +3,10 @@ import { useEffect, useState, Key } from "react";
 import AlarmSVG from "../../components/AlarmSVG";
 import DateSVG from "../../components/DateSVG";
 import LocationSVG from "../../components/LocationSVG";
+import ArrowLeft from "../../components/ArrowLeft";
+import Link from "next/link";
+import { BsArrowLeft } from "react-icons/bs";
+
 export default function powerOutrageDetailPage() {
   const router = useRouter();
   const powerOutrageId = router.query.powerOutrageId;
@@ -47,22 +51,20 @@ export default function powerOutrageDetailPage() {
     return obj.some((outage: any) => outage.district === powerOutrageId);
   });
 
-  // Extract available months from results
   const availableMonths = Array.from(
-    new Set(
+    new Set<number>( // <--- Add <number> here
       results[0]?.map((outage: any) => {
         const date = new Date(outage.from);
-        return date.getMonth(); // 0-11
+        return date.getMonth(); 
       }) || []
     )
   ).sort((a, b) => a - b);
 
-  // Extract available years from results
   const availableYears = Array.from(
-    new Set(
+    new Set<number>( // <--- Add <number> here
       results[0]?.map((outage: any) => {
         const date = new Date(outage.from);
-        return date.getFullYear();
+        return date.getFullYear(); 
       }) || []
     )
   ).sort((a, b) => a - b);
@@ -93,13 +95,27 @@ export default function powerOutrageDetailPage() {
     return results[0]?.filter(matchesSelectedFilters) || [];
   };
 
+  // Do this inside your component body, but NOT in a function
+const outagesToday = results[0]?.filter((outage: any) => 
+  new Date(outage.from).toDateString() === currentDate.toDateString()
+) || [];
+
+const numberOfOutagesToday = outagesToday.length;
+
   const isOutageToday = (outageDate: string) => {
     return new Date(outageDate).toDateString() === currentDate.toDateString();
   };
 
+
+
   return (
     <section className="h-screen dark:bg-gray-600">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-4">
+        <Link href="/powerOutrage" >
+        <div className="flex gap-2 items-center pt-8 hover:text-black/70 cursor-pointer text-black">
+            <ArrowLeft /> View all regions
+        </div>
+        </Link>
         <h1 className="py-12   text-3xl font-bold text-center uppercase">
           {powerOutrageId} outages
         </h1>
@@ -123,7 +139,7 @@ export default function powerOutrageDetailPage() {
             ))}
           </div>
 
-         <div className="flex gap-12 ">
+         <div className="flex gap-6 md:gap-12 px-4">
            <div className="flex flex-wrap gap-2 justify-center max-w-4xl">
             {availableYears.map((year: number) => (
               <button
@@ -147,13 +163,17 @@ export default function powerOutrageDetailPage() {
               }}
               className=" px-4 py-2 bg-yellow-400 border-1 text-black rounded-lg hover:bg-red-600 transition"
             >
-              Clear All Filters
+              Clear Filters
             </button>
           )}
          </div>
-           
-            <div className="w-full text-teal-500 dark:text-white font-medium text-center">
+          <div className="flex flex-col justify-center gap-2 items-center">
+             <div className="font-medium text-teal-500 dark:text-white">
+            Found <span className="font-bold"> {numberOfOutagesToday}</span> outage today
+           </div>
+            <div className="w-full text-black font-medium text-center">
             Found {getFilteredResults().length} outages {selectedMonth !== null && `in ${monthNames[selectedMonth]}`} {selectedYear !== null && `of ${selectedYear}`}
+          </div>
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-4 justify-center md:justify-right pb-8 dark:bg-gray-600">
