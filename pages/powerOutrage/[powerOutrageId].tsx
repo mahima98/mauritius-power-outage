@@ -111,12 +111,14 @@ const numberOfOutagesToday = outagesToday.length;
   return (
     <section className="h-screen dark:bg-gray-600">
       <div className="mx-auto max-w-7xl px-4">
-        <Link href="/powerOutrage" >
-        <div className="flex gap-2 items-center pt-8 hover:text-black/70 cursor-pointer text-black">
-            <ArrowLeft /> View all regions
-        </div>
+       <div className="flex justify-center md:justify-start w-full pt-12 md:pt-8">
+         <Link href="/powerOutrage" className="w-full">
+          <div className="flex gap-2 items-center hover:text-black/70 cursor-pointer text-black text-xs md:text-sm font-medium">
+              <ArrowLeft /> View all regions
+          </div>
         </Link>
-        <h1 className="py-12   text-3xl font-bold text-center uppercase">
+       </div>
+        <h1 className="py-6 md:py-12 text-3xl font-bold text-center uppercase">
           {powerOutrageId} outages
         </h1>
         {isLoading && (
